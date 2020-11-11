@@ -1,0 +1,31 @@
+1、指令集：储存在CPU内部的硬件程序；
+2、MMU：从虚拟地址到实际物理地址的映射，实际上扩大的虚拟地址的范围；CPU直接对虚拟地址
+                  操作，(实际物理地址可能被多端虚拟地址映射)，对于32位CPU可以扩展4G内存的虚拟地址
+                  配置的虚拟地址的寻址表，以1M为单位，存储在实际物理地址的4k中；
+3、OSI七层模型：
+     7）应用层：
+     6）表示层：
+     5）会话层：
+     4）传输层：将数据打包，主要有TCP（面向连接，有重发，流量，顺序控制，），
+                         UDP（只加源端口和目的端口号，适用于广播，可靠性要求低的传输）传输协议；
+     3）网络层：路由选择；
+     2）数据链路层：提供物理层的控制，以及传输纠错功能；
+     1）物理层：传输比特流；
+4、关于gcc编译命令：
+     gcc -o  HelloWorld   HelloWorld.c;  生成可执行文件；
+     分步编译命令如下：1）预处理： gcc –E HelloWorld.c -o HelloWorld.i
+                                    2）编译：     gcc –S HelloWorld.i   
+                                    3）汇编：     $ gcc –c HelloWorld.c 或者：$ gcc -c HelloWorld.c –o HelloWorld.o 或者：$ gcc -c HelloWorld.i -o HelloWorld.o 
+                                    4）连接：     gcc HelloWorld.o –o HelloWorld
+                                      多文件连接 ；gcc main.o a.o b.o -o main
+                                      生成.a   ar -crv libhello.a hello.o    ;链接静态库 ：gcc main.c -o hello_China -L. -lhello
+5   格式化磁盘:mmcFormat;
+6   chmod 增加文件权限:使用格式chmod [who] [opt] [mode]文件/目录名;使用实例:chmod a+x a.txt
+                       who:a表示所有用户;opt格式:+-=;mod权限:r,w,x(执行);
+7   数组和指针,数组a[4][4],b[4];a表示a[0]的地址,a+1表示a[1]的地址;是指数组的地址,和&b一样,地址加1表示下一行的地址,这种地址需要的指针的形式为,
+    int (*p)[4];a[1]表示a[1][0]的地址;是具体的数据地址,可以用普通指针;
+学习内容：1）学习板；2）makefile；3）c++；4）脚本命令（文件批处理）；
+8、1）C语言的宏定义作用域只限于本文件；2）c的#include<>可以理解为把.h内容复制到.c的开头；
+     结论1）在.h中定义变量或函数是会报重复定义的；2）宏定义不会；（未赋值的变量定义在bsss段，编译器会把同名的分配同一段内存是可以的）
+               所以在.h中包含的内容1）数据类型的定义；2）函数和变量的声明；3）宏定义；
+9、结构体变量作为形参内成员指针开内存，不要使用临时变量指针指；
